@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# 🌱 Grant-Match
+### AI-powered grant discovery and scoring for nonprofits
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live App:** https://grant-match-eight.vercel.app/
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What It Does
 
-### `npm start`
+Nonprofits waste enormous time manually researching grants. Grant-Match lets a nonprofit staff member describe their organization's mission, and the app automatically finds matching grant opportunities, scores each one for mission alignment using Claude AI, and displays everything in an interactive dashboard — with an AI advisor chatbot on the side.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Full flow:**
+1. User enters their nonprofit's mission, focus area, and location
+2. App retrieves relevant grant opportunities
+3. Claude AI analyzes each grant and scores it 1–10 for mission alignment, with a one-sentence reason
+4. Results are cleaned and structured into a sortable dashboard
+5. A bar chart visualizes alignment scores at a glance
+6. A Claude-powered chatbot answers follow-up questions like *"Which should I apply to first?"* or *"Help me write a pitch for this grant"*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **AI Grant Scoring** — Claude evaluates each grant against the org's mission and returns a score + reason
+- **Interactive Dashboard** — sortable by alignment score or deadline, expandable grant cards
+- **Data Visualization** — bar chart of mission alignment scores using Recharts
+- **Grant Advisor Chatbot** — Claude-powered chat with suggested questions and full grant context
+- **Clean, accessible UI** — usable by nonprofit staff with no technical background
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer | Technology |
+|---|---|
+| Frontend | React |
+| AI Layer | Claude API (claude-sonnet-4-6) |
+| Charts | Recharts |
+| Hosting | Vercel |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## How to Run Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/RanveerTC/grant-match.git
+cd grant-match
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a `.env` file in the root:
+```
+REACT_APP_ANTHROPIC_API_KEY=your_key_here
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Then:
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Why I Built This
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was built as part of my application to the Claude Corps Fellowship. Claude Corps places fellows inside nonprofits to build AI tools that create real impact. Grant-Match targets a genuine pain point — nonprofit staff spending hours manually searching for funding — and solves it with a tool that requires no technical knowledge to use.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## What's Next
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Connect to live grants APIs (Grants.gov, Candid/Foundation Directory)
+- Add grant deadline reminders
+- Export results to CSV for sharing with teams
+- User accounts to save and track grant applications
